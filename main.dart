@@ -1,3 +1,5 @@
+import 'asyncFuc.dart';
+
 enum Status{
   go,
   stope,
@@ -65,12 +67,62 @@ void main(){
   Optionl optionl2 = substarct;
   int result2 = optionl2(10,20,30);
   print(result2);
-
   int result3 = caculate(100,2,50,add);
   int result4 = caculate(100,2,50,substarct);
   print(result3);
   print(result4);
+  print('2222222222222222');
+  Idol myClass = new Idol('아이돌',['ㅈㅂㄷㅈㅂ','ㄷㅂㅈㄷㅂㅈㄷ']);
+  myClass.sayHellow();
+  myClass.introducer();
+  Idol btsClass = new Idol('나의 두번쨰 클래스', ['이건 두번쨰 클래스','홀리쉣']);
+  btsClass.sayHellow();
+  btsClass.introducer();
+
+
+  Idol btsClass2 = Idol.MyNames([['222','333'],'eqweqwe']);
+
+  print(btsClass2.name);
+  print(btsClass2.members);
+  print('@@@@@@@@@@@@@@@@@@@@@@@@');
+  print(btsClass2.firstMember);
+  btsClass2.firstMember = '새로운 멤버';
+  print(btsClass2.firstMember);
+  asyncFuc();
 }
+
+// getter / setter
+
+// class
+class Idol{
+  final String name;
+  final List<String> members;
+  Idol(String name, List<String> members): this.name = name,this.members = members;
+  // 이름을 가진 콘스트럭트
+  Idol.MyNames(List values)
+      : this.members = values[0],
+        this.name = values[1];
+
+  void sayHellow(){
+    print(this.name);
+  }
+
+  void introducer(){
+    print(this.members);
+  }
+
+  // getter
+  String get firstMember{
+    return this.members[0];
+  }
+  // setter
+
+  set firstMember(String newMember){
+   this.members[0] = newMember;
+  }
+}
+
+
 
 // 세개의 숫자 (x,y,z) 를 더하고 짝수 홀수 구분
 // 옵셔널 파라미터
